@@ -62,9 +62,9 @@ if __name__ == "__main__" :
     )
 bot = Client(
     "my_bot",
-    api_id=26729193,       # Replace with your API ID
-    api_hash="a94598ef642481e35466292df95f251e",  # Replace with your API Hash
-    bot_token="7706795279:AAE_KSUZaElgXpN3lVura8GD6OXZWr0-lGM"  # <-- Replace with the new token
+    api_id=30296254,       # Replace with your API ID
+    api_hash="c2b5306f4ccd2d795405a026c10b4c62",  # Replace with your API Hash
+    bot_token="8631709476:AAEcmTI71C7aE3W_iBtzwF2WwRNjMWZQ93E"  # <-- Replace with the new token
 )
 
 async def main():
