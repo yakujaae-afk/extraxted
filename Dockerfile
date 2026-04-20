@@ -1,9 +1,10 @@
-FROM python:3.9.7-slim-buster
+FROM python:3.9-slim
 
-WORKDIR .
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
-RUN pip3 install -r requirements.txt
-
-CMD ["python", "main.py"]
-
+CMD ["python3", "main.py"]  # CMD को सही फॉर्मेट में लिखें (कॉमा सेपरेटेड)
