@@ -20,7 +20,9 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE
 
+# main.py में यह जोड़ें
 
+# बाकी बॉट कोड...
 import os
 from config import Config
 from pyrogram import Client, idle
@@ -28,7 +30,6 @@ import asyncio, logging
 import tgcrypto
 from pyromod import listen
 from logging.handlers import RotatingFileHandler
-
 LOGGER = logging.getLogger(__name__)
 logging.basicConfig(
     level=logging.INFO,
@@ -59,12 +60,30 @@ if __name__ == "__main__" :
         plugins=plugins,
         workers = 50
     )
-    
-    async def main():
+bot = Client(
+    "my_bot",
+    api_id=26729193,       # Replace with your API ID
+    api_hash="a94598ef642481e35466292df95f251e",  # Replace with your API Hash
+    bot_token="7706795279:AAE_KSUZaElgXpN3lVura8GD6OXZWr0-lGM"  # <-- Replace with the new token
+)
+
+async def main():
+    try:
         await bot.start()
-        bot_info  = await bot.get_me()
-        LOGGER.info(f"<--- @{bot_info.username} Started (c) STARKBOT --->")
-        await idle()
-    
-    asyncio.get_event_loop().run_until_complete(main())
-    LOGGER.info(f"<---Bot Stopped-->")
+        bot_info = await bot.get_me()
+        print(f"Bot started: @{bot_info.username}")
+        await idle()  # Keeps the bot running
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        if await bot.is_initialized():  # Check if bot is running before stopping
+            await bot.stop()
+        print("Bot stopped")
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("Bot stopped by user")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
