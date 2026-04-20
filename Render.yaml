@@ -1,0 +1,25 @@
+# render.yaml - For Telegram Bot (Pyrogram/Telethon)
+# Works with both free and paid plans
+
+services:
+  telegram-bot:
+    # Use 'worker' type since bots don't need ports
+    type: worker
+    name: my-telegram-bot
+    env: python
+    python.version: 3.9
+    build:
+      os: ubuntu
+      commands:
+        - pip install -r requirements.txt
+    start: python main.py
+    envVars:
+      - key: API_ID
+        value: 26729193
+      - key: API_HASH
+        value: a94598ef642481e35466292df95f251e
+      - key: BOT_TOKEN
+        value: 7706795279:AAE_KSUZaElgXpN3lVura8GD6OXZWr0-lGM
+    # Automatic deployment settings
+    autoDeploy: true
+    plan: free  # Change to 'standard' for 24/7 uptime
