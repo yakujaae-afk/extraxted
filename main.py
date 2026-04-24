@@ -43,11 +43,6 @@ logging.basicConfig(
     ],
 )
 
-# Auth Users
-AUTH_USERS = [ int(chat) for chat in Config.AUTH_USERS.split(",") if chat != '']
-
-# Prefixes 
-prefixes = ["/", "~", "?", "!"]
 
 
 # Initialize the bot
@@ -57,12 +52,7 @@ bot = Client(
     api_hash=API_HASH,
     bot_token=BOT_TOKEN
 )
-bot = Client(
-    "my_bot",
-    api_id=30296254,       # Replace with your API ID
-    api_hash="c2b5306f4ccd2d795405a026c10b4c62",  # Replace with your API Hash
-    bot_token="8631709476:AAEcmTI71C7aE3W_iBtzwF2WwRNjMWZQ93E"  # <-- Replace with the new token
-)
+
 
 async def main():
     try:
