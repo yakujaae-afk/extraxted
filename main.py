@@ -24,7 +24,7 @@
 
 # बाकी बॉट कोड...
 import os
-from config import Config
+from config import Config API_ID, API_HASH, BOT_TOKEN,
 from pyrogram import Client, idle
 import asyncio, logging
 import tgcrypto
@@ -49,17 +49,14 @@ AUTH_USERS = [ int(chat) for chat in Config.AUTH_USERS.split(",") if chat != '']
 # Prefixes 
 prefixes = ["/", "~", "?", "!"]
 
-plugins = dict(root="plugins")
-if __name__ == "__main__" :
-    bot = Client(
-        "StarkBot",
-        bot_token=os.environ.get("BOT_TOKEN"),
-        api_id=int(os.environ.get("API_ID")),
-        api_hash=os.environ.get("API_HASH"),
-        sleep_threshold=20,
-        plugins=plugins,
-        workers = 50
-    )
+
+# Initialize the bot
+bot = Client(
+    "bot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
 bot = Client(
     "my_bot",
     api_id=30296254,       # Replace with your API ID
