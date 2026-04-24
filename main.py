@@ -24,7 +24,7 @@
 
 # बाकी बॉट कोड...
 import os
-from config import Config API_ID, API_HASH, BOT_TOKEN,
+from config import API_ID, API_HASH, BOT_TOKEN,
 from pyrogram import Client, idle
 import asyncio, logging
 import tgcrypto
